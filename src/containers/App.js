@@ -1,8 +1,9 @@
 
 import './App.css';
-import Person from './Person/Person';
+import Persons from '../components/Persons/Persons';
 import React, { Component } from "react";
 import Radium,{StyleRoot} from 'radium';
+
 
 class App extends Component {
 
@@ -19,7 +20,7 @@ state ={
 }
 
 
-   changeHandler=(newName,)=>{
+   changeHandler=(newName)=>{
     this.setState({
       persons:[
         {name:newName, age:"32"},
@@ -80,22 +81,14 @@ state ={
     if(this.state.showPerson){
       persons=(
         <div>
+          <Persons
+          persons = {this.state.persons}
+          clicked = {this.deleteHandler}
+          changed={this.typeHandler}
+          />
+\        </div>
 
-            {this.state.persons.map((mans,index)=>{
-              return <Person 
-              click={()=>this.deleteHandler(index)}
-              name ={mans.name} 
-              age={mans.age}
-              key={mans.id}
-              change={(event)=>this.typeHandler(event,mans.id)}
-
-              > </Person>
-            })}
-
-
-        </div>
-
-      )
+      );
       style.backgroundColor="red";
       style[':hover']= {
         backgroundColor:"salmon",
