@@ -1,6 +1,7 @@
 import Style  from './App.module.css'
 import Persons from '../components/Persons/Persons';
 import React, { Component } from "react";
+import Cockpit from '../components/Cockpit/Cockpit'
 
 
 
@@ -63,48 +64,28 @@ state ={
   }
 
   render(){
-    const style ={
-      font:'inherit',
-      backgroundColor:"green",
-      color:"white",
-      border:'2px solid blue',
-      padding: '8px',
-      cursor:"pointer",
-   
-
-    };
     let persons =null;
+
+  
     if(this.state.showPerson){
-      persons=(
-        <div>
+      persons=
           <Persons
           persons = {this.state.persons}
           clicked = {this.deleteHandler}
           changed={this.typeHandler}
           />
-        </div>
 
-      );
-      style.backgroundColor="red";
-      style[':hover']= {
-        backgroundColor:"salmon",
-        color:"black" 
-      }
     };
 
-const classes =[];
-if(this.state.persons.length<=2){
-  classes.push(Style.red);
-}
-if(this.state.persons.length<=1){
-  classes.push(Style.bold);
-}
+
   return (
   
     <div className={Style.App}>
-      <p className={classes.join(' ')} >This is react app</p>
-      <button style={style} onClick={this.toggleHandler}>click me</button>
-
+     
+     <Cockpit showPerson ={this.state.showPerson}
+            persons={this.state.persons}
+            clicked ={this.toggleHandler }
+    ></Cockpit>
      {persons}
      </div>
 
