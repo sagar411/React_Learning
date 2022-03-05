@@ -1,8 +1,7 @@
-
-import './App.css';
+import Style  from './App.module.css'
 import Persons from '../components/Persons/Persons';
 import React, { Component } from "react";
-import Radium,{StyleRoot} from 'radium';
+
 
 
 class App extends Component {
@@ -16,7 +15,7 @@ state ={
     {id:"4",name:"bijay", age:"39"}
   ],
   showPerson :false
-   
+    
 }
 
 
@@ -71,10 +70,7 @@ state ={
       border:'2px solid blue',
       padding: '8px',
       cursor:"pointer",
-      ':hover': {
-        backgroundColor:"lightgreen",
-        color:"black"
-      }
+   
 
     };
     let persons =null;
@@ -86,7 +82,7 @@ state ={
           clicked = {this.deleteHandler}
           changed={this.typeHandler}
           />
-\        </div>
+        </div>
 
       );
       style.backgroundColor="red";
@@ -98,23 +94,23 @@ state ={
 
 const classes =[];
 if(this.state.persons.length<=2){
-  classes.push('red');
+  classes.push(Style.red);
 }
 if(this.state.persons.length<=1){
-  classes.push('bold');
+  classes.push(Style.bold);
 }
   return (
-    <StyleRoot>
-    <div className="App">
+  
+    <div className={Style.App}>
       <p className={classes.join(' ')} >This is react app</p>
       <button style={style} onClick={this.toggleHandler}>click me</button>
 
      {persons}
      </div>
-     </StyleRoot>
+
   )
 }
 }
 
-export default Radium(App);
+export default App;
 
