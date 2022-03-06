@@ -7,6 +7,7 @@ const Person =(props)=>{
   //   '@media(min-width:500px)':{
   //     width:'450px'
   //   } 
+  console.log('[Person.js] rendering..')
   
 return(
  
