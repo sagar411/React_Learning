@@ -20,7 +20,7 @@ if(props.persons.length<=1){
 
     return(
         <div className={Style.Cockpit}>
-        <h1>i am react</h1>
+        <h1>i am react {props.appName}</h1>
         <p className={classes.join(' ')} >This is react app</p>
         <button 
         className={btnClass }

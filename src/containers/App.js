@@ -82,7 +82,9 @@ state ={
   
     <div className={Style.App}>
      
-     <Cockpit showPerson ={this.state.showPerson}
+     <Cockpit 
+      appName={this.props.title}
+     showPerson ={this.state.showPerson}
             persons={this.state.persons}
             clicked ={this.toggleHandler }
     ></Cockpit>
