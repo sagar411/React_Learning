@@ -1,8 +1,10 @@
-import React  from "react";
+import React,{Component}  from "react";
 import Style from "./Person.module.css"
 
 
-const Person =(props)=>{
+class Person extends Component{
+  
+  render(){
   // const style={
   //   '@media(min-width:500px)':{
   //     width:'450px'
@@ -13,13 +15,14 @@ return(
  
 
     <div className={Style.Person} >
-      <h1 onClick={props.click}> Hello this is {props.name} and age is {props.age}</h1> 
+      <h1 onClick={this.props.click}> Hello this is {this.props.name} and age is {this.props.age}</h1> 
 
-    <input type="text" onChange={props.change} ></input>
+    <input type="text" onChange={this.props.change} ></input>
    
       
     </div>
 )
 
+}
 }
 export default Person;
