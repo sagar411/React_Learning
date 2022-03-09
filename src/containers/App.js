@@ -35,6 +35,9 @@ static getDerivedStateFromProps(props,state){
 componentDidMount(){
   console.log('[App.js] componentDidMount');
 }
+componentDidUpdate(){
+  
+}
 
 
 
