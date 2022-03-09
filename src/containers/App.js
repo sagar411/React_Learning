@@ -1,11 +1,11 @@
 import Style  from './App.module.css'
 import Persons from '../components/Persons/Persons';
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import Cockpit from '../components/Cockpit/Cockpit'
 
 
 
-class App extends Component {
+class App extends PureComponent {
   constructor(props){
     super(props);
     console.log('[App.js] constructor');
@@ -19,7 +19,8 @@ state ={
     {id:"3",name:"Sanjay", age:"28"},
     {id:"4",name:"bijay", age:"39"}
   ],
-  showPerson :false
+  showPerson :false,
+  showCockpit:true
     
 }
 
@@ -35,22 +36,34 @@ static getDerivedStateFromProps(props,state){
 componentDidMount(){
   console.log('[App.js] componentDidMount');
 }
+// componentDidUpdate(){
+//   console.log['App.js componentDidUpdate']
+// }
+
+// shouldComponentUpdate(nextProps,nextState){
+//   console.log(["app.js componentDidUpdate"]);
+//   if(nextProps.persons !== this.state.persons|| nextProps.changed !== this.state.changed || nextProps.clicked !==this.state.clicked){
+//     return true;
+//   }else{
+//     return false;
+//   }
+ 
+// }
 componentDidUpdate(){
-  
+  console.log(['App.js componentDidUpdate']);
 }
 
 
+  //  changeHandler=(newName)=>{
+  //   this.setState({
+  //     persons:[
+  //       {name:newName, age:"32"},
+  //       {name:"sagar",age:"25"},
+  //       {name:"Sanjay", age:"28"}
+  //     ]
+  //   });
 
-   changeHandler=(newName)=>{
-    this.setState({
-      persons:[
-        {name:newName, age:"32"},
-        {name:"sagar",age:"25"},
-        {name:"Sanjay", age:"28"}
-      ]
-    });
-
-  }
+  // }
 
   typeHandler=(event,id)=>{
 
@@ -103,15 +116,22 @@ componentDidUpdate(){
   return (
   
     <div className={Style.App}>
+      <button onClick={()=>{this.setState({showCockpit:false})}} >Remove Cockpit</button>
      
-     <Cockpit 
+    { this.state.showCockpit ?<Cockpit 
       appName={this.props.title}
      showPerson ={this.state.showPerson}
-            persons={this.state.persons}
+            personsLength={this.state.persons.length}
             clicked ={this.toggleHandler }
     ></Cockpit>
+    
+    :null  
+    
+    }
+    
      {persons}
      </div>
+     
 
   )
 }

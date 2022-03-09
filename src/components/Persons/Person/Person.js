@@ -21,6 +21,13 @@ return(
    
       
     </div>
+   
+   
+  //   [<h1 key="i1" onClick={this.props.click}> Hello this is {this.props.name} and age is {this.props.age}</h1> ,
+
+  // <input key="i2" type="text" onChange={this.props.change} ></input>
+// ]
+  
 )
 
 }

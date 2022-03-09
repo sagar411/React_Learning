@@ -20,6 +20,11 @@ class Persons extends Component{
     console.log('[Persons.js] componentdIupdate' );
     console.log(snapShot);
   }
+//cleanup work 
+  componentWillUnmount(){
+    console.log("[Person.js componentWillUnmount]");
+
+  }
 
   render(){
 console.log('[Person.js] rendering...');
